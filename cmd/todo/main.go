@@ -85,9 +85,4 @@ func getTask(r io.Reader, args ...string) (string, error) {
 	return s.Text(), nil
 }
 
-// flags
-// -add used to add todo
-// -task used to list all todos
-// -complete used to list todo completed
-// -uncomplete used to list todo that has not been completed
-// -Delete used to delete an item from the todolist item
+

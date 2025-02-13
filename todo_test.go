@@ -8,13 +8,13 @@ import (
 
 func TestAdd(t *testing.T) {
 
-	taskName := "Task Name"
+	task := "Task Name"
 	l := todo.List{}
 
-	l.Add(taskName)
+	l.Add(task)
 
-	if l[0].Task != taskName {
-		t.Errorf("Expects %s got %s", taskName, l[0].Task)
+	if l[0].Task != task {
+		t.Errorf("Expects %s got %s", task, l[0].Task)
 	}
 }
 
@@ -46,10 +46,10 @@ func TestDelete(t *testing.T) {
 }
 
 func TestComplete(t *testing.T) {
-	taskName := "Task Name"
+	task := "Task Name"
 	l := todo.List{}
 
-	l.Add(taskName)
+	l.Add(task)
 
 	if l[0].Done {
 		t.Errorf("Expects task not to be completed")
@@ -63,11 +63,11 @@ func TestComplete(t *testing.T) {
 }
 
 func TestSave(t *testing.T) {
-	taskName := "Task Name"
+	task := "Task Name"
 	l1 := todo.List{}
 	l2 := todo.List{}
 
-	l1.Add(taskName)
+	l1.Add(task)
 
 	file, err := os.CreateTemp("", "")
 
@@ -85,8 +85,8 @@ func TestSave(t *testing.T) {
 		t.Error(err)
 	}
 
-	if l1[0].Task != taskName {
-		t.Errorf("Expects %s got %s", taskName, l1[0].Task)
+	if l1[0].Task != task {
+		t.Errorf("Expects %s got %s", task, l1[0].Task)
 	}
 
 	if l1[0].Task != l2[0].Task {
